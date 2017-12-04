@@ -1,5 +1,6 @@
 package com.jeonguk.java8.faltmap;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Student {
 
     private String name;
