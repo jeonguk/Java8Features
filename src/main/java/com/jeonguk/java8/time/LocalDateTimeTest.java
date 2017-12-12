@@ -1,6 +1,7 @@
 package com.jeonguk.java8.time;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 public class LocalDateTimeTest {
 
@@ -33,6 +34,18 @@ public class LocalDateTimeTest {
         // Getting data from the base date i.e 01/01/1970
         LocalDateTime dateFromBase = LocalDateTime.ofEpochSecond(10000, 0, ZoneOffset.UTC);
         System.out.println("10000th second time from 01/01/1970 = " + dateFromBase);
+
+        // How to format dates with LocalDateTime
+        String date1 = "2017-03-08T12:30:54";
+        LocalDateTime localdatetime = LocalDateTime.parse(date1);
+        System.out.println("origional date as string: " + date1);
+        System.out.println("generated LocalDateTime: " + localdatetime);
+
+        String date2 = "2017-03-08 12:30:54";
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(date2, format);
+        System.out.println("origional date as string: " + date2);
+        System.out.println("generated LocalDateTime: " + dateTime);
 
     }
 
