@@ -1,8 +1,11 @@
 package com.jeonguk.java8.optional;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
+/**
+ * Optional Test
+ * reference site : https://www.mkyong.com/java8/java-8-optional-in-depth/
+ */
 public class OptionalTest {
 
   public static void main(String[] args) {
