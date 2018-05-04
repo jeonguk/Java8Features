@@ -2,10 +2,8 @@ package com.jeonguk.java8.datetime;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 @Slf4j
 public class LocalDateTimeTest {
@@ -42,8 +40,24 @@ public class LocalDateTimeTest {
 		LocalTime time10 = LocalDateTime.parse("2018-02-13T06:30").toLocalTime();
 
 
-		Period period1 = Period.between(LocalDate.parse("2018-01-18"), LocalDate.parse("2018-02-14"));
+		// Difference in Time: Duration and Period
 
+		Period period1 = Period.between(LocalDate.parse("2018-01-18"), LocalDate.parse("2018-02-14"));
 		log.info("{}", period1.getDays());
+		// represents a period of 27 days
+		Period period2 = Period.parse("P27D");
+
+		Duration duration1 = Duration.between(LocalDateTime.parse("2018-01-18T06:30"), LocalDateTime.parse("2018-02-14T22:58"));
+		log.info("{}", duration1.getSeconds());
+
+		// represents PT664H28M
+		Duration duration = Duration.between(LocalDateTime.parse("2018-01-18T06:30"), LocalDateTime.parse("2018-02-14T22:58"));
+		// returns 664
+		long hours1 = duration.toHours();
+		log.info("{}", hours1);
+		// returns 664
+		long hours2 = LocalDateTime.parse("2018-01-18T06:30").until(LocalDateTime.parse("2018-02-14T22:58"), ChronoUnit.HOURS);
+		log.info("{}", hours2);
+
 	}
 }
