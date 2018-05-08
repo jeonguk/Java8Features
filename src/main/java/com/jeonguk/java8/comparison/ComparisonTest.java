@@ -22,4 +22,5 @@ public class ComparisonTest {
 
         assertThat(humans.get(0), equalTo(new Human("Jack", 12)));
     }
+    
 }
