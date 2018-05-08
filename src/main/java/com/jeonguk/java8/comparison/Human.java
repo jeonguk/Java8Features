@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 public class Human {
+
     private String name;
     private int age;
 
@@ -21,4 +22,5 @@ public class Human {
         this.name = name;
         this.age = age;
     }
+    
 }
