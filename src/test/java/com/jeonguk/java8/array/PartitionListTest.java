@@ -110,8 +110,7 @@ public class PartitionListTest {
 		int[] indexes =	Stream.of(IntStream.of(-1), IntStream.range(0, intList.size())
 						.filter(i -> intList.get(i) == 0), IntStream.of(intList.size()))
 						.flatMapToInt(s -> s).toArray();
-		List<List<Integer>> subSets =
-				IntStream.range(0, indexes.length - 1)
+		List<List<Integer>> subSets = IntStream.range(0, indexes.length - 1)
 						.mapToObj(i -> intList.subList(indexes[i] + 1, indexes[i + 1]))
 						.collect(Collectors.toList());
 
