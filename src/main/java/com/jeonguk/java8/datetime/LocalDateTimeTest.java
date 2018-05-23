@@ -59,6 +59,21 @@ public class LocalDateTimeTest {
 		long hours2 = LocalDateTime.parse("2018-01-18T06:30").until(LocalDateTime.parse("2018-02-14T22:58"), ChronoUnit.HOURS);
 		log.info("{}", hours2);
 
+
+		final LocalDateTime startDateTime = LocalDateTime.of(2018, 04, 23, 11, 49);
+		final LocalDateTime endDateTime = LocalDateTime.of(2018, 05, 24, 11, 49);
+
+		log.info("DATE TIME WITHIN TEST {}" , isWithin(startDateTime, endDateTime, LocalDateTime.now()));
 	}
 
+	/**
+	 *
+	 * @param startDateTime
+	 * @param endDateTime
+	 * @param nowDateTime
+	 * @return
+	 */
+	public static boolean isWithin(LocalDateTime startDateTime, LocalDateTime endDateTime, LocalDateTime nowDateTime) {
+		return nowDateTime.isAfter(startDateTime) && nowDateTime.isBefore(endDateTime);
+	}
 }
