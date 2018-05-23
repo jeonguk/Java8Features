@@ -63,7 +63,17 @@ public class LocalDateTimeTest {
 		final LocalDateTime startDateTime = LocalDateTime.of(2018, 04, 23, 11, 49);
 		final LocalDateTime endDateTime = LocalDateTime.of(2018, 05, 24, 11, 49);
 
-		log.info("DATE TIME WITHIN TEST {}" , isWithin(startDateTime, endDateTime, LocalDateTime.now()));
+		log.info("DATE isBetweenDateTiems TEST {}" , isBetweenDateTiems(startDateTime, endDateTime, LocalDateTime.now()));
+
+		final LocalDate startDate = LocalDate.of(2018, 04, 23);
+		final LocalDate endDate = LocalDate.of(2018, 05, 22);
+
+		log.info("DATE isBetweenDates TEST {}" , isBetweenDates(startDate, endDate, LocalDate.now()));
+
+		final LocalTime startTime = LocalTime.of(14, 22, 33);
+		final LocalTime endTime = LocalTime.of(21, 22, 33);
+
+		log.info("TIME isBetweenTimes TEST {}", isBetweenTimes(startTime, endTime, LocalTime.now()));
 	}
 
 	/**
@@ -73,7 +83,30 @@ public class LocalDateTimeTest {
 	 * @param nowDateTime
 	 * @return
 	 */
-	public static boolean isWithin(LocalDateTime startDateTime, LocalDateTime endDateTime, LocalDateTime nowDateTime) {
+	public static boolean isBetweenDateTiems(LocalDateTime startDateTime, LocalDateTime endDateTime, LocalDateTime nowDateTime) {
 		return nowDateTime.isAfter(startDateTime) && nowDateTime.isBefore(endDateTime);
 	}
+
+	/**
+	 *
+	 * @param startDate
+	 * @param endDate
+	 * @param nowDate
+	 * @return
+	 */
+	public static boolean isBetweenDates(LocalDate startDate, LocalDate endDate, LocalDate nowDate) {
+		return nowDate.isAfter(startDate) && nowDate.isBefore(endDate);
+	}
+
+	/**
+	 *
+	 * @param startTime
+	 * @param endTime
+	 * @param nowTime
+	 * @return
+	 */
+	public static boolean isBetweenTimes(LocalTime startTime, LocalTime endTime, LocalTime nowTime) {
+		return nowTime.isAfter(startTime) && nowTime.isBefore(endTime);
+	}
+
 }
