@@ -1,4 +1,4 @@
-package com.jeonguk.java8.faltmap;
+package com.jeonguk.java8.flatmap;
 
 import java.util.ArrayList;
 import java.util.List;
