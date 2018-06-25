@@ -3,13 +3,29 @@ package com.jeonguk.java8.datetime;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 @Slf4j
 public class LocalDateTimeTest {
 
+	public static final DateTimeFormatter FORMATTER_YYYY_MM_DD_HH_MM = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
 	public static void main(String[] args) {
 		//  APIs support an easy instantiation
+
+		LocalDateTime nowDate = LocalDateTime.now();
+
+		log.info("nowDate1111111 {}", nowDate.toString());
+
+//		LocalDateTime.parse("2018-06-29T14:43:40.792");
+//		log.info("nowDate parse {}", LocalDateTime.parse("2018-06-29T14:43:40.792"));
+
+		//LocalDateTime localDateTime = LocalDateTime.parse("2018-06-22T15:10:16.701").plusDays(7);
+
+		String formatLocalDateTime = LocalDateTime.parse("2018-06-22T15:10:16.701").plusDays(7).format(FORMATTER_YYYY_MM_DD_HH_MM);
+
+		log.info("date time string {}", formatLocalDateTime);
 
 		LocalDate date1 = LocalDate.of(2018,2,13);
 
