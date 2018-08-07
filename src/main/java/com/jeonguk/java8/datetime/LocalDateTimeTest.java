@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 @Slf4j
 public class LocalDateTimeTest {
 
-	public static final DateTimeFormatter FORMATTER_YYYY_MM_DD_HH_MM = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+	public static final DateTimeFormatter FORMATTER_YYYY_MM_DD_HH_MM = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
 	public static void main(String[] args) {
 		//  APIs support an easy instantiation
@@ -17,6 +17,12 @@ public class LocalDateTimeTest {
 		LocalDateTime nowDate = LocalDateTime.now();
 
 		log.info("nowDate1111111 {}", nowDate.toString());
+
+		String nowDate2 = LocalDateTime.now().format(FORMATTER_YYYY_MM_DD_HH_MM);
+		log.info("nowDate2 {}", nowDate2);
+
+		Duration duration5 = Duration.between(LocalDateTime.parse("2018-08-03T11:04:20.129"), LocalDateTime.parse("2018-08-03T11:04:27.529"));
+		log.info("duration5 {}", duration5.getSeconds());
 
 //		LocalDateTime.parse("2018-06-29T14:43:40.792");
 //		log.info("nowDate parse {}", LocalDateTime.parse("2018-06-29T14:43:40.792"));
@@ -62,6 +68,9 @@ public class LocalDateTimeTest {
 		log.info("{}", period1.getDays());
 		// represents a period of 27 days
 		Period period2 = Period.parse("P27D");
+
+		Duration duration3 = Duration.between(LocalDateTime.parse("2018-06-29T15:10:16"), LocalDateTime.parse("2018-06-29T15:10:18"));
+		log.info("duration3 {}", duration3.getSeconds());
 
 		Duration duration1 = Duration.between(LocalDateTime.parse("2018-01-18T06:30"), LocalDateTime.parse("2018-02-14T22:58"));
 		log.info("{}", duration1.getSeconds());
