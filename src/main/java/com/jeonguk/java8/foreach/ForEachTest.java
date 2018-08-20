@@ -9,15 +9,10 @@ public class ForEachTest {
         // creating Collection
         List<Integer> list = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        list.forEach(i -> System.out.println(i));
+        list.forEach(System.out::println);
 
         // traversing through forEach method of Iterable with anonymous class
-        list.forEach(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer t) {
-                System.out.println("forEach anonymous class Value:: " + t);
-            }
-        });
+        list.forEach(t -> System.out.println("forEach anonymous class Value:: " + t));
 
         // traversing with Consumer interface implementation
         MyConsumer action = new MyConsumer();
@@ -52,7 +47,7 @@ public class ForEachTest {
         // In Java 8, you can loop a List with forEach + lambda expression or method reference.
         //lambda
         //Output : A,B,C,D,E
-        itemList.forEach(item->System.out.println(item));
+        itemList.forEach(System.out::println);
 
         //Output : C
         itemList.forEach(item->{
@@ -71,9 +66,7 @@ public class ForEachTest {
                 .filter(s->s.contains("B"))
                 .forEach(System.out::println);
 
-
-
-
+        
     }
 
 }

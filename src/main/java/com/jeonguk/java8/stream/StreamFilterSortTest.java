@@ -68,6 +68,15 @@ public class StreamFilterSortTest {
 		log.info("maxGrd ===== {}", maxGrd);
 		log.info("minGrd ===== {}", minGrd);
 
+		grids.forEach(r -> {
+			if (r.getNum1().equals(maxGrd)) {
+				r.setMaxG("MAX");
+			}
+			if (r.getNum2().equals(minGrd)) {
+				r.setMinG("MIN");
+			}
+		});
+
 		grids.sort((p1, p2) -> ComparisonChain.start().compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum1(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum1(), "0")), Ordering.natural().reverse()).compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum2(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum2(), "0"))).result());
 
 		grids.forEach(
@@ -78,12 +87,20 @@ public class StreamFilterSortTest {
 
 }
 
+class Response<T> {
+	private int status;
+	private T result;
+}
+
 @Data
 class Grid {
 	private String name;
 	private String num1;
 	private String num2;
 	private String tyCd;
+	private String maxG;
+	private String minG;
+	private String path;
 }
 
 class GridChainedComparator implements Comparator<Grid> {
