@@ -77,7 +77,11 @@ public class StreamFilterSortTest {
 			}
 		});
 
-		grids.sort((p1, p2) -> ComparisonChain.start().compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum1(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum1(), "0")), Ordering.natural().reverse()).compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum2(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum2(), "0"))).result());
+//		grids.sort((p1, p2) -> ComparisonChain.start().compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum1(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum1(), "0")), Ordering.natural().reverse()).compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum2(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum2(), "0"))).result());
+
+
+		grids.sort((p1, p2) -> ComparisonChain.start().compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum2(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum2(), "0"))).compare(new BigDecimal(StringUtils.defaultIfBlank(p1.getNum1(), "0")), new BigDecimal(StringUtils.defaultIfBlank(p2.getNum1(), "0")), Ordering.natural().reverse()).result());
+
 
 		grids.forEach(
 			g -> log.info("g = {}", g)
